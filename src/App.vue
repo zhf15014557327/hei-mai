@@ -18,7 +18,9 @@
               <strong>|</strong>
             </span>
             <span>
-              <a href class>会员中心</a>
+              <!-- 声明式导航 -->
+              <router-link to="/vipCenter">会员中心</router-link>
+              <!-- <a href class>会员中心</a> -->
               <strong>|</strong>
               <a>退出</a>
               <strong>|</strong>
@@ -89,7 +91,7 @@
       </div>
     </div>
     <!-- 路由出口 -->
-    <!-- <router-view></router-view> -->
+    <router-view></router-view>
     <!-- 底部 -->
     <div class="footer">
       <div class="section">
