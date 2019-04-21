@@ -4,6 +4,10 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter);
 // 导入组件
 import index from '../components/index.vue'
+import Detail from '../components/Detail.vue'
+import login from '../components/login.vue'
+import pay from '../components/pay.vue'
+import shoppingCart from '../components/shopping-cart.vue'
 import vipCenter from '../components/vipCenter.vue'
 import userCerten from '../components/children/userCerten.vue'
 import oderList from '../components/children/oderList.vue'
@@ -21,6 +25,23 @@ let router= new VueRouter({
         path:'/index',
         component:index
     },
+        {
+        path:'/shoppingCart',
+        component:shoppingCart
+    },
+        {
+        path:'/pay',
+        component:pay
+    },
+        {
+        path:'/login',
+        component:login
+    },
+        {
+        path:'/Detail/:id',
+        component:Detail
+    },
+      
         {
         path:'/vipCenter',
         component:vipCenter,
@@ -42,6 +63,7 @@ let router= new VueRouter({
                 path:'oderDetails',
                 component:oderDetails
             },
+           
         ]
     },
 ]

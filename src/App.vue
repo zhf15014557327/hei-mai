@@ -25,12 +25,14 @@
               <a>退出</a>
               <strong>|</strong>
             </span>
-            <a href class>
+            
+              <router-link to="/shoppingCart">
               <i class="iconfont icon-cart"></i>购物车(
               <span id="shoppingCartCount">
                 <span>4</span>
               </span>)
-            </a>
+              </router-link>
+           
           </div>
         </div>
       </div>

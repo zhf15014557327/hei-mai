@@ -44,7 +44,7 @@
             <div class="left-705">
               <el-carousel :interval="2000" arrow="always" >
                 <el-carousel-item v-for="item in sliderlist" :key="item.id">
-                <img :src="item.img_url" alt="">
+                <img :src="item.img_url" alt="" class="image">
                 </el-carousel-item>
               </el-carousel>
             </div>
@@ -102,26 +102,7 @@
                     </p>
                   </div>
                     </router-link>
-                <!-- <a href="#/site/goodsinfo/87" class>
-                  <div class="img-box">
-                    <img
-                      :src="it.img_url"
-                    >
-                  </div>
-                  <div class="info">
-                    <h3>{{it.artTitle}}</h3>
-                    <p class="price">
-                      <b>{{it.sell_price}}</b>元
-                    </p>
-                    <p>
-                      <strong>库存 {{it.stock_quamtity}}</strong>
-                      <span>
-                        市场价：
-                        <s>{{it.market_price}}</s>
-                      </span>
-                    </p>
-                  </div>
-                </a> -->
+            
               </li>
             </ul>
           </div>
@@ -167,7 +148,8 @@ export default {
  
 };
 </script>
-<style  lang="scss">
+<style  lang="scss" >
+.content-index{
 .el-carousel{
   height: 341px;
 }
@@ -182,5 +164,7 @@ export default {
 .el-carousel__button{
   background-color: aqua;
 }
+}
+
 </style>
 
