@@ -32,11 +32,11 @@ let store = new Vuex.Store({
           let total=0;
         for (const key in state.CatrData) {
             total+=state.CatrData[key];
-        };
+        }
         return total;
         }
       }
-});
+})
 // 页面即将关闭保存数据
 window.onbeforeunload=function(){
      alert(store.state.CatrData)
