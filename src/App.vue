@@ -12,7 +12,7 @@
           </div>
           <div id="menu" class="right-box">
             <span style="display: none;">
-              <a href class>登录</a>
+              <router-link to="/login">登录</router-link>
               <strong>|</strong>
               <a href class>注册</a>
               <strong>|</strong>
@@ -22,7 +22,7 @@
               <router-link to="/vipCenter">会员中心</router-link>
               <!-- <a href class>会员中心</a> -->
               <strong>|</strong>
-              <a>退出</a>
+              <a @click="outLogin">退出</a>
               <strong>|</strong>
             </span>
             
@@ -131,8 +131,34 @@
 </template>
 
 <script>
+import Vue from 'vue'
 export default {
-  name: "app"
+  name: "app",
+  methods: {
+  // 退出登录事件
+  outLogin(){
+     // 请求退出
+     this.$axios.get('site/account/logout').then(res=>{
+  //  console.log( res );
+   if(res.data.status==0){
+     window.sessionStorage.removeItem('token')
+    //  成功退出
+       this.$message({
+          message: res.data.message,
+          type: 'success'
+        });
+        // 跳转到登录页
+        this.$router.push('/login');
+   }else if(res.data.status==1){
+    //  失败提示
+     this.$message.error(res.data.message);
+   }
+     })
+  },
+   // 登录判断封装
+ 
+},
+
 };
 </script>
 

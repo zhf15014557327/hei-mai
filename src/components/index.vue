@@ -123,7 +123,7 @@ export default {
       catetitles:[]
     };
   },
-
+  // 过滤器
   filters: {
     retuTiem(value) {
       // console.log( value );
@@ -131,15 +131,44 @@ export default {
       return newArr[0];
     }
   },
+   beforeCreate() {
+    // 判断是否有token
+    let token = window.sessionStorage.getItem("token");
+    if (token) {
+      // 登录成功
+    } else {
+      // 没有token 没有登录
+      this.$message.error("请先登录");
+      // 去登录页 编程式导航
+      this.$router.push("login");
+    }
+  },
+    // 登录判断
+//  async beforeCreate() {
+//       // 请求退出
+//     let res= await this.$axios.get('site/account/islogin');
+ 
+//    if(res.data.code==="nologin"){
+//     //  成功退出
+//        this.$message({
+//           message: "还未登录呢!!!",
+//           type: 'warning'
+//         });
+//         // 跳转到登录页
+//         this.$router.push('/login');
+ 
+//      }
+//   },
   created() {
-    console.log(this.$axios);
-    
+    // console.log(this.$axios);
+    // 获取数据
     this.$axios.get("site/goods/gettopdata/goods").then(res => {
-      console.log( res );
+      // console.log( res );
       this.catelist = res.data.message.catelist;
       this.sliderlist = res.data.message.sliderlist;
       this.toplist = res.data.message.toplist;
     });
+    // 获取商品列表的详细信息
     this.$axios.get("site/goods/getgoodsgroup").then(res=>{
       // console.log( res );
       this.catetitles=res.data.message

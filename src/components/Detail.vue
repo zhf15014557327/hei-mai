@@ -244,7 +244,7 @@ export default {
     // 封装请求商品详情数据函数
     goDetall() {
       this.$axios.get(`site/goods/getgoodsinfo/${this.id}`).then(res => {
-        console.log(res);
+        // console.log(res);
         this.goodsinfo = res.data.message.goodsinfo;
         this.hotgoodslist = res.data.message.hotgoodslist;
         this.imglist = res.data.message.imglist;
@@ -309,7 +309,8 @@ export default {
     height: 320px;
     .topImg {
       display: block;
-      width: 100%;
+      margin: 0 auto;
+      width: 380px;
       height: 320px;
       padding: 0, 20px, 0, 0;
     }

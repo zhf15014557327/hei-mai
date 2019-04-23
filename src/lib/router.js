@@ -67,6 +67,32 @@ let router= new VueRouter({
         ]
     },
 ]
-})
- 
+});
+// 导航守卫
+router.beforeEach((to, from, next) => {
+    // console.log( to.path );
+    // console.log( from.path);
+    next();
+    if(to.path==="/login"){
+        next();
+    }else{
+            // // 登录判断
+            let token = window.sessionStorage.getItem("token");
+            if (token) {
+            // 登录成功
+            next();
+            } else {
+            // 没有token 没有登录
+            // alert("请先登录")
+            Vue.prototype.$message.error('请先登录');
+            // this.$message.error("请先登录");
+            // 去登录页 编程式导航
+            // this.$router.push("login");
+                           next('/login')
+            }
+                 
+                  
+    }
+  })
+
 export default router

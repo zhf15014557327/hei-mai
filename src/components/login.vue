@@ -20,7 +20,7 @@
             <div class="input-box">
               <input
                 id="txtUserName"
-                v-model.trim="useName"
+                v-model.trim="userName"
                 name="txtUserName"
                 type="text"
                 placeholder="用户名/手机/邮箱"
@@ -51,7 +51,7 @@ export default {
   name: "login",
   data() {
     return {
-      useName: "",
+      userName: "",
       password: ""
     };
   },
@@ -64,16 +64,18 @@ export default {
         });
         return;
       }
-      let res= await this.$axios.post("site/account/login",{use_name:this.useName,password:this.password})
-      console.log( res );
+      let res= await this.$axios.post("site/account/login",{user_name:this.userName,password:this.password})
+      // console.log( res );
       if(res.data.status==1){
          this.$message.error('用户名或密码错误');
       }else{
+        // 造一个token
+       window.sessionStorage.setItem("token", res.data.status);
            this.$message({
           message: '登陆成功',
           type: 'success'
         });
-        this.$router.go(-1)||this.$router.path('/index');
+        this.$router.go(-1)||this.$router.push('/index');
       }
     }
   }
