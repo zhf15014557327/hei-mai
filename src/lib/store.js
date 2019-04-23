@@ -8,7 +8,8 @@ Vue.use(Vuex)
 let store = new Vuex.Store({
     // 数据
     state: {
-        CatrData:{}
+        // 短路运算
+        CatrData:JSON.parse(window.localStorage.getItem('cartInfo'))||{}
       },
 //    方法
       mutations: {
@@ -36,5 +37,11 @@ let store = new Vuex.Store({
         }
       }
 });
+// 页面即将关闭保存数据
+window.onbeforeunload=function(){
+     alert(store.state.CatrData)
+    window.localStorage.setItem('cartInfo',JSON.stringify(store.state.CatrData))
+}
+
 // 暴露出去
 export default store

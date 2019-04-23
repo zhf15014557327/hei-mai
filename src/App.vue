@@ -29,7 +29,7 @@
               <router-link to="/shoppingCart">
               <i class="iconfont icon-cart"></i>购物车(
               <span id="shoppingCartCount">
-                <span>4</span>
+                <span>{{$store.getters.totalNum}}</span>
               </span>)
               </router-link>
            
