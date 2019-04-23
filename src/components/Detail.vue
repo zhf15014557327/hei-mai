@@ -70,9 +70,9 @@
                       <dd>
                         <div id="buyButton" class="btn-buy">
                           <router-link to="/shoppingCart">
-                            <button class="buy">立即购买</button>
+                            <button class="buy" >立即购买</button>
                           </router-link>
-                          <button  class="add">加入购物车</button>
+                          <button  class="add" @click="add2Catr">加入购物车</button>
                         </div>
                       </dd>
                     </dl>
@@ -178,7 +178,11 @@ export default {
     return {
       // 商品id
       id: "",
-      goodsinfo: {},
+      goodsinfo: {
+        status:1,
+        stock_quantity:10,
+        sell_price:123,
+      },
       hotgoodslist: [],
       imglist: [
         {
@@ -220,6 +224,18 @@ export default {
 
   },
   methods: {
+    // 添加到购物车
+    add2Catr(){
+    //   console.log( this.goodsinfo.status);
+      // 提交载荷
+      this.$store.commit('add2Catr',{
+        goods_id:this.id,
+        goods_num:this.goodsinfo.status
+        });
+      // 成功提示
+       this.$message({ message:"加入购物车成功",type:'success'});
+    },
+    // 点击商品显示详情
     addDiscuss() {
       if(this.textarea2==""){
         alert('写点东西呗!');

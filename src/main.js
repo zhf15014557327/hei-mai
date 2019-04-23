@@ -14,8 +14,12 @@ Vue.use(VueAxios);
 Vue.config.productionTip = false;
 // 导入ruter-vue全局路由
 import router from "./lib/router"
+// 导入仓库
+import store from "./lib/store"
 new Vue({
   // 挂载路由
   router,
+  // 挂载仓库
+  store,
   render: h => h(App),
 }).$mount('#app')
