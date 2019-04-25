@@ -16,6 +16,18 @@ Vue.config.productionTip = false;
 import router from "./lib/router"
 // 导入仓库
 import store from "./lib/store"
+// 注册全局过滤器 方便使用
+// 导入 moment
+import moment from 'moment';
+Vue.filter("returnItme", value => {
+  //   console.log(value);
+  // 处理时间数据
+  // 返回处理之后的数据
+  // 要显示什么 就返回什么
+  console.log(moment(value).format("YYYY😘MM😘DD👍"));
+  //   return '😁😁😁😁😁';
+  return moment(value).format("YYYY-MM-DD😁");
+});
 new Vue({
   // 挂载路由
   router,

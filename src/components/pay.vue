@@ -24,8 +24,9 @@
                                             </div>
                                             <div class="info">
                                                 <strong>订单已支付成功！</strong>
+                                                <p><span class="daoji">{{item}}</span>秒后将自动跳转到首页</p>
                                                 <p>您可以点击这里进入
-                                                    <a href="/user/center/index.html">会员中心</a>查看订单状态！</p>
+                                                    <router-link to="/vipCenter" class="vip">会员中心</router-link>查看订单状态！</p>
                                                 <p>如有其它问题，请立即与我们客服人员联系。</p>
                                             </div>
                                         </div>
@@ -40,10 +41,39 @@
     </div>
 </template><script>
 export default {
-    name:'pay'
+    name:'pay',
+    data() {
+        return {
+            item:10,
+        }
+    },
+  created() {
+     this.tiemId = setInterval( ()=>{
+         
+         this.item--
+        //  console.log(this.item  );
+        if(this.item==0){
+
+            this.$router.push('/index');
+        }
+      },1000)
+  },
+  destroyed() {
+      clearInterval(this.tiemId)
+  },
 }
 </script>
 <style lang="scss">
+.contern-pay{
+.daoji{
+    color:red;
+    font-size: 28px;
+}
+.vip{
+    border: 1px solid #000;
+    background-color: #ccc;
+}
+}
 
 </style>
 

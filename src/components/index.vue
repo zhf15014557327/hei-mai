@@ -123,26 +123,26 @@ export default {
       catetitles:[]
     };
   },
-  // 过滤器
-  filters: {
-    retuTiem(value) {
-      // console.log( value );
-      let newArr = value.split("T");
-      return newArr[0];
-    }
-  },
-   beforeCreate() {
-    // 判断是否有token
-    let token = window.sessionStorage.getItem("token");
-    if (token) {
-      // 登录成功
-    } else {
-      // 没有token 没有登录
-      this.$message.error("请先登录");
-      // 去登录页 编程式导航
-      this.$router.push("login");
-    }
-  },
+  // 过滤器废弃了使用全局过滤器替代
+  // filters: {
+  //   retuTiem(value) {
+  //     // console.log( value );
+  //     let newArr = value.split("T");
+  //     return newArr[0];
+  //   }
+  // },
+  //  beforeCreate() {
+  //   // 判断是否有token
+  //   let token = window.sessionStorage.getItem("token");
+  //   if (token) {
+  //     // 登录成功
+  //   } else {
+  //     // 没有token 没有登录
+  //     this.$message.error("请先登录");
+  //     // 去登录页 编程式导航
+  //     this.$router.push("login");
+  //   }
+  // },
     // 登录判断
 //  async beforeCreate() {
 //       // 请求退出

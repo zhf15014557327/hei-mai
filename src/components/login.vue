@@ -25,6 +25,7 @@
                 type="text"
                 placeholder="用户名/手机/邮箱"
                 maxlength="50"
+               
               >
             </div>
             <div class="input-box">
@@ -35,6 +36,7 @@
                 type="password"
                 placeholder="输入登录密码"
                 maxlength="16"
+              
               >
             </div>
             <div class="btn-box">
@@ -51,8 +53,8 @@ export default {
   name: "login",
   data() {
     return {
-      userName: "",
-      password: ""
+      userName: "admin",
+      password: "123"
     };
   },
   methods: {

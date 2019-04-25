@@ -206,12 +206,12 @@ export default {
     };
   },
   // 过滤器
-  filters: {
-    returnItme(value) {
-      let newarr = value.split("T");
-      return newarr[0];
-    }
-  },
+  // filters: {
+  //   returnItme(value) {
+  //     let newarr = value.split("T");
+  //     return newarr[0];
+  //   }
+  // },
   created() {
     // 获取url中的id
     this.id = this.$route.params.id;

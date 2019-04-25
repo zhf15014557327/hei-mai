@@ -23,6 +23,10 @@ let store = new Vuex.Store({
             // 使用vue的set方法告诉vue数据的改变(监听数据变化)
             Vue.set(state.CatrData,data.goods_id,data.goods_num);
           }
+        },
+        // 添加修改数据的方法
+        upData(state,data){
+          state.CatrData=data
         }
       },
     //   计算属性
