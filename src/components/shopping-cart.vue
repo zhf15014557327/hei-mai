@@ -257,15 +257,22 @@
 
           <!-- 支付 -->
           <div class="cart-conten cart-conten3" v-show="tag==3">
-            <div class="cart-box">
+            <div class="cart-box cart-box3">
               <div class="conten3-title ">
                 <h1>支付中心</h1>
               </div>
               <div class="conten3-centen">
                 <div class="conten3-left">
-                  
+                  <p><span class="left">订单号 :  BD20554454545</span> <span class="right">收货人姓名 :  张兰</span></p>
+                  <p><span class="left">送货地址 :  广东省深圳市宝安区福永镇</span> <span class="right">手机号码 :  15014557327</span></p>
+                  <p><span class="left">支付金额 :  10406元</span> <span class="right">支付方式 :  在线支付</span></p>
+                  <p><span class="left">备注 :  请尽快发货</span> </p>
                 </div>
-                <div class="conten3-right"><img src="" alt=""></div>
+                <div class="conten3-right">
+                  <router-link to="/pay">
+                  <img src="../assets/logo.png" alt="">
+                  </router-link>
+                  </div>
               </div>
            
             </div>
@@ -454,7 +461,55 @@ export default {
 };
 </script>
 <style lang="scss">
+*{
+  box-sizing: border-box;
+}
 .content-shoppingCart {
+  .cart-box3{
+    width:1160;
+    // border: 1px solid #ccc;
+    .conten3-title {
+      width: 100%;
+      
+      h1{
+        color: #83c44e;
+        text-align: center;
+        padding: 20px 0;
+         border-bottom: 1px solid #ccc;
+      }
+    }
+    .conten3-centen{
+      height: 450px;
+      display: flex;
+      .conten3-left{
+        padding-top: 25px;
+        flex: 1;
+        // border: 1px solid #ccc;
+        p{
+          padding: 15px 0 15px 20px;
+          width: 100%;
+          display:flex;
+          .left{
+            flex: 1
+          }
+          .right{
+            padding-left: 25px;
+            flex: 1
+          }
+        }
+      }
+      .conten3-right{
+        flex: 1;
+        // border: 1px solid #ccc;
+        img{
+          margin: 25px auto;
+          display:block;
+          width: 400px;
+          height: 400px;
+        }
+       }
+    }
+  }
   .botton{
     margin: 20px 0px ;
   }

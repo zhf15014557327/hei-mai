@@ -60,7 +60,7 @@
                   </div>
                   <div class="txt-box">
                     <a href="/goods/show-98.html">{{item.title}}</a>
-                    <span>{{item.add_time|retuTiem}}</span>
+                    <span>{{item.add_time|returnItme}}</span>
                   </div>
                 </li>
               </ul>
